@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
         User _user = null;
         String _uuid = uuid.replace("-", "");
         for (User user : userRepository.findAll()) {
-            if (user.getUuid().contains(_uuid)){
+            if (user.getUuid().contains(_uuid)) {
                 _user = user;
             }
         }
@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
     public Optional<User> findByName(String name) {
         User _user = null;
         for (User user : userRepository.findAll()) {
-            if (user.getName().contains(name)){
+            if (user.getName().contains(name)) {
                 _user = user;
             }
         }

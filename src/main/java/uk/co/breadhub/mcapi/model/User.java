@@ -30,7 +30,8 @@ public class User implements Serializable {
     @Column(name = "timestamp")
     private Map<String, Integer> prevNames;
 
-    public User() {}
+    public User() {
+    }
 
     public User(String name, String uuid) {
         this.name = name;
