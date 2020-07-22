@@ -5,6 +5,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+### to not expose internal passwords ###
+src/main/resources/application.properties
+
 ### STS ###
 .apt_generated
 .classpath
@@ -32,3 +35,4 @@ out/
 
 ### VS Code ###
 .vscode/
+
