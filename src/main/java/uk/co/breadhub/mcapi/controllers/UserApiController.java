@@ -29,9 +29,14 @@ public class UserApiController {
         return userService.find(id);
     }
 
-    @GetMapping("/api/{uuid}")
+    @GetMapping("/api/uuid/{uuid}")
     public Optional<User> getByUUID(@PathVariable(value = "uuid") String uuid) {
         return userService.findByUUID(uuid);
+    }
+
+    @GetMapping("/api/name/{name}")
+    public Optional<User> getByName(@PathVariable(value = "name") String name) {
+        return userService.findByName(name);
     }
 
     @GetMapping("/api/count")

@@ -12,6 +12,8 @@ public interface UserService {
 
     Optional<User> findByUUID(String uuid);
 
+    Optional<User> findByName(String uuid);
+
     Iterable<User> findAll();
 
     void delete(Long id);

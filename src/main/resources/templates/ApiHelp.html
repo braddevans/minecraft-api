@@ -11,14 +11,18 @@
 <script>
     document.getElementById('content').innerHTML =
         marked('### Api Calls: \n' +
+            '\n\n======================================================================\n\n' +
             '#####    /api/all            -   [Displays all users]\n' +
             '#####    /api/count          -   [Displays user count]\n' +
+            '\n\n======================================================================\n\n' +
             '#####    /api/{id}           -   [Displays user by db_id]\n' +
-            '#####    /api/{uuid}         -   [Displays user by uuid]\n' +
-            '#####    /api/{name}         -   [Displays user by name]\n' +
+            '#####    /api/uuid/{uuid}         -   [Displays user by uuid]\n' +
+            '#####    /api/name/{name}         -   [Displays user by name]\n' +
+            '\n\n======================================================================\n\n' +
             "#####    /api/{id}/names     -   [Displays user's previous by db_id]\n" +
-            "#####    /api/{name}/names   -   [Displays user's previous by name]\n" +
-            "#####    /api/{uuid}/names   -   [Displays user's previous by uuid]\n");
+            "#####    /api/name/{name}/names   -   [Displays user's previous by name]\n" +
+            "#####    /api/uuid/{uuid}/names   -   [Displays user's previous by uuid]\n" +
+            '\n\n======================================================================\n\n');
 </script>
 
 </body>

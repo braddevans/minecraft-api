@@ -36,6 +36,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Optional<User> findByName(String name) {
+        User _user = null;
+        for (User user : userRepository.findAll()) {
+            if (user.getName().contains(name)){
+                _user = user;
+            }
+        }
+        return Optional.ofNullable(_user);
+    }
+
+    @Override
     public Iterable<User> findAll() {
         return userRepository.findAll();
     }
