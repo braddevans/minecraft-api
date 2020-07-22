@@ -9,12 +9,12 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("")
-public class UserController {
+public class UserApiController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("/api")
+    @PostMapping("/api/new")
     public User save(@RequestBody User user) {
         return userService.save(user);
     }
@@ -38,6 +38,8 @@ public class UserController {
     public long count() {
         return userService.count();
     }
+
+
 
 
     /* ==========================

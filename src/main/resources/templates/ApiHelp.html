@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Help Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<!-- <p th:text="'Hello, ' + ${name} + '!'" /> -->
+<div id="content"></div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+    document.getElementById('content').innerHTML =
+        marked('### Api Calls: \n' +
+            '#####    /api/all            -   [Displays all users]\n' +
+            '#####    /api/count          -   [Displays user count]\n' +
+            '#####    /api/{id}           -   [Displays user by db_id]\n' +
+            '#####    /api/{uuid}         -   [Displays user by uuid]\n' +
+            '#####    /api/{name}         -   [Displays user by name]\n' +
+            "#####    /api/{id}/names     -   [Displays user's previous by db_id]\n" +
+            "#####    /api/{name}/names   -   [Displays user's previous by name]\n" +
+            "#####    /api/{uuid}/names   -   [Displays user's previous by uuid]\n");
+</script>
+
+</body>
+</html>
