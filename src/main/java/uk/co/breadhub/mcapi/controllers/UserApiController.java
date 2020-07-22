@@ -24,11 +24,6 @@ public class UserApiController {
         return userService.findAll();
     }
 
-    @GetMapping("/api/{id}")
-    public Optional<User> getById(@PathVariable(value = "id") Long id) {
-        return userService.find(id);
-    }
-
     @GetMapping("/api/uuid/{uuid}")
     public Optional<User> getByUUID(@PathVariable(value = "uuid") String uuid) {
         return userService.findByUUID(uuid);
@@ -51,6 +46,13 @@ public class UserApiController {
      * Removed Mappings
      * ==========================
      */
+
+    /*
+    @GetMapping("/api/{id}")
+    public Optional<User> getById(@PathVariable(value = "id") Long id) {
+        return userService.find(id);
+    }
+    */
 
     /*
     @DeleteMapping("/api/{id}")
