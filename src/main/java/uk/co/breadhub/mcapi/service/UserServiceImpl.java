@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import uk.co.breadhub.mcapi.database.UserRepository;
 import uk.co.breadhub.mcapi.model.User;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,51 +20,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> find(Long id) {
-        return userRepository.findById(id);
-    }
-
-    @Override
-    public Optional<User> findByUUID(String uuid) {
-        User _user = null;
-        String _uuid = uuid.replace("-", "");
-        for (User user : userRepository.findAll()) {
-            if (user.getUuid().contains(_uuid)) {
-                _user = user;
-            }
-        }
-        return Optional.ofNullable(_user);
+    public Optional<User> findByUuid(String uuid) {
+        return userRepository.findUserByUuid(uuid);
     }
 
     @Override
     public Optional<User> findByName(String name) {
-        User _user = null;
-        for (User user : userRepository.findAll()) {
-            if (user.getName().contains(name)) {
-                _user = user;
-            }
-        }
-        return Optional.ofNullable(_user);
+        return userRepository.findByName(name);
     }
 
     @Override
     public Iterable<User> findAll() {
         return userRepository.findAll();
-    }
-
-    @Override
-    public void delete(Long id) {
-        userRepository.deleteById(id);
-    }
-
-    @Override
-    public void delete(User user) {
-        userRepository.delete(user);
-    }
-
-    @Override
-    public void deleteAll() {
-        userRepository.deleteAll();
     }
 
     @Override
