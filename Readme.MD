@@ -4,6 +4,8 @@
 [![Generic badge](https://img.shields.io/badge/Spring_Share_Url-Click_Here-green.svg?style=for-the-badge&logo=spring)](https://start.spring.io/#!type=gradle-project&language=java&platformVersion=2.3.1.RELEASE&packaging=jar&jvmVersion=11&groupId=uk.co.breadhub&artifactId=mcapi&name=mcapi&description=Minecraft%20UserName%2FUUID%20API&packageName=uk.co.breadhub.mcapi&dependencies=devtools,lombok,configuration-processor,session,web,thymeleaf,mustache,jdbc,mysql,batch,codecentric-spring-boot-admin-server)
 ![Generic badge](https://img.shields.io/badge/Maintainer-braddevans-blue.svg?style=for-the-badge)
 
+##
+ 
 ### Api Endpoints: 
 
 ====================================================================== 
@@ -22,11 +24,13 @@
 
 ======================================================================
 
+##
 
 ### Planned Fixes or items to check:
  
  - check if it updates the name history of the user when they change their name
 
+##
 
 ### Example Api Call
 ##### Note: "changedToAt" is a Unix Timestamp
