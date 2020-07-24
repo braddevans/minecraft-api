@@ -23,6 +23,11 @@
 ======================================================================
 
 
+### Planned Fixes or items to check:
+ 
+ - check if it updates the name history of the user when they change their name
+
+
 ### Example Api Call
 ##### Note: "changedToAt" is a Unix Timestamp
 
