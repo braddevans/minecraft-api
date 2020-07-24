@@ -1,17 +1,17 @@
 package uk.co.breadhub.mcapi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User implements Serializable {
 
     private String name;
     @Id
     private String uuid;
+
 
     public User() {
     }
@@ -44,4 +44,5 @@ public class User implements Serializable {
                 ", uuid='" + uuid + '\'' +
                 '}';
     }
+
 }
