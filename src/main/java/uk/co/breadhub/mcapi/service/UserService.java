@@ -3,7 +3,6 @@ package uk.co.breadhub.mcapi.service;
 import org.springframework.stereotype.Service;
 import uk.co.breadhub.mcapi.model.User;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service

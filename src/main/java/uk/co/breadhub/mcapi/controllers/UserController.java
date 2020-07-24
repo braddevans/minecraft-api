@@ -8,9 +8,7 @@ import uk.co.breadhub.mcapi.service.PrevNamesService;
 import uk.co.breadhub.mcapi.service.UserService;
 import uk.co.breadhub.mcapi.utils.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("")
@@ -38,7 +36,7 @@ public class UserController {
     @GetMapping("/api/name/{name}")
     public User getByName(@PathVariable(value = "name") String name) {
         User user = null;
-        if (!userService.findByName(name).isEmpty()){
+        if (!userService.findByName(name).isEmpty()) {
             user = userService.findByName(name).get();
         } else {
             user = utils.newUser(name);
@@ -53,7 +51,7 @@ public class UserController {
     }
 
     @GetMapping("/api/uuid/{uuid}/names")
-    public List<PrevNames> getPrevByUuid(@PathVariable(value = "uuid") String uuid){
+    public List<PrevNames> getPrevByUuid(@PathVariable(value = "uuid") String uuid) {
         User user = getByUuid(uuid);
         return prevnamesService.findByUuid(user.getUuid());
     }
@@ -74,7 +72,7 @@ public class UserController {
     }
 
     @GetMapping("/api/names/count")
-    public long countNames(){
+    public long countNames() {
         return prevnamesService.count();
     }
 

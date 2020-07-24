@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import uk.co.breadhub.mcapi.database.UserRepository;
 import uk.co.breadhub.mcapi.model.User;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service

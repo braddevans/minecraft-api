@@ -1,13 +1,11 @@
 package uk.co.breadhub.mcapi.service;
 
-import uk.co.breadhub.mcapi.model.PrevNames;
-import uk.co.breadhub.mcapi.database.PrevNamesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uk.co.breadhub.mcapi.model.User;
+import uk.co.breadhub.mcapi.database.PrevNamesRepository;
+import uk.co.breadhub.mcapi.model.PrevNames;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PrevNamesServiceImpl implements PrevNamesService {

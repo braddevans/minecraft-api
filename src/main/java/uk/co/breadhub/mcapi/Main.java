@@ -1,11 +1,9 @@
 package uk.co.breadhub.mcapi;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import uk.co.breadhub.mcapi.database.UserRepository;
-import uk.co.breadhub.mcapi.utils.Utils;
 
 @SpringBootApplication
 public class Main {

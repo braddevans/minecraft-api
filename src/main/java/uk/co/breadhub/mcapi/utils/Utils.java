@@ -1,14 +1,11 @@
 package uk.co.breadhub.mcapi.utils;
 
-import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.Table;
 import me.kbrewster.exceptions.APIException;
 import me.kbrewster.mojangapi.MojangAPI;
 import me.kbrewster.mojangapi.profile.Name;
 import me.kbrewster.mojangapi.profile.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import uk.co.breadhub.mcapi.Main;
 import uk.co.breadhub.mcapi.model.PrevNames;
 import uk.co.breadhub.mcapi.model.User;
 import uk.co.breadhub.mcapi.service.PrevNamesService;
@@ -34,7 +31,7 @@ public class Utils {
             user.setName(userProfile.getName());
             user.setUuid(userProfile.getId());
             ArrayList<PrevNames> prevnames = new ArrayList<>();
-            for (Name name: MojangAPI.getNameHistory(userProfile.getName())) {
+            for (Name name : MojangAPI.getNameHistory(userProfile.getName())) {
                 PrevNames prevname = new PrevNames(name.getName(), userProfile.getId(), name.getChangedToAt());
                 prevnames.add(prevname);
                 prevNamesService.save(prevname);
