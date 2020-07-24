@@ -24,7 +24,9 @@
 
 
 ### Example Api Call
-`localhost:8080/api/uuid/fcd17554303744f68e9206b3746285d0/names`
+##### Note: "changedToAt" is a Unix Timestamp
+
+`GET localhost:8080/api/uuid/fcd17554303744f68e9206b3746285d0/names`
 ```json
 [
    {
