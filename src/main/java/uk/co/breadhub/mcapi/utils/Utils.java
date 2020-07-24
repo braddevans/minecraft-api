@@ -30,14 +30,11 @@ public class Utils {
             Profile userProfile = MojangAPI.getProfile(str);
             user.setName(userProfile.getName());
             user.setUuid(userProfile.getId());
-            ArrayList<PrevNames> prevnames = new ArrayList<>();
             for (Name name : MojangAPI.getNameHistory(userProfile.getName())) {
                 PrevNames prevname = new PrevNames(name.getName(), userProfile.getId(), name.getChangedToAt());
-                prevnames.add(prevname);
                 prevNamesService.save(prevname);
             }
-
-            System.out.println(String.format("Name: %s, UUID: %s, PrevName: %s", userProfile.getName(), userProfile.getId(), prevnames));
+            System.out.println(String.format("Name: %s, UUID: %s", userProfile.getName(), userProfile.getId()));
 
             userService.save(user);
         } catch (APIException | IOException e) {
