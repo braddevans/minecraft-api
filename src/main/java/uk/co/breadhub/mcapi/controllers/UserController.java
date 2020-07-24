@@ -68,12 +68,12 @@ public class UserController {
         return prevnamesService.findAllNames();
     }
 
-    @GetMapping("/user/count")
+    @GetMapping("/api/count")
     public long count() {
         return userService.count();
     }
 
-    @GetMapping("/prevnames/count")
+    @GetMapping("/api/names/count")
     public long countNames(){
         return prevnamesService.count();
     }
