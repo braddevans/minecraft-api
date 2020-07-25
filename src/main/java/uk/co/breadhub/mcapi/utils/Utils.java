@@ -54,21 +54,22 @@ public class Utils {
                 PrevNames prevname = new PrevNames(name.getName(), userProfile.getId(), name.getChangedToAt());
                 prevNamesService.save(prevname);
             }
-        } catch (APIException | IOException e) {
+        } catch (APIException | IOException ignored) {
         }
         return names;
     }
 
-    public User updateName(String uuid) {
-        User user = userService.findByUuid(uuid).get();
+    public boolean updateName(String uuid) {
+        boolean bool = false;
         try {
             System.out.println("================[ Pinging Mojang Api ]=================");
+            User user = userService.findByUuid(uuid).get();
             Profile userProfile = MojangAPI.getProfile(user.getName());
             user.setName(userProfile.getName());
-
             userService.save(user);
-        } catch (APIException | IOException e) {
+            bool = true;
+        } catch (APIException | IOException ignored) {
         }
-        return user;
+        return bool;
     }
 }

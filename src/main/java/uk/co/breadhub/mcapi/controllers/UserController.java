@@ -47,8 +47,8 @@ public class UserController {
 
     @GetMapping("/api/update/{uuid}/")
     public String updatePrevByUuid(@PathVariable(value = "uuid") String uuid) {
-        String names = utils.updatePrevNames(uuid);
-        User user = getByUuid(uuid);
+        utils.updatePrevNames(uuid);
+        utils.updateName(uuid);
         return "OK";
     }
 
