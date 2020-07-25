@@ -41,4 +41,34 @@ public class Utils {
         }
         return user;
     }
+
+    public String updatePrevNames(String uuid) {
+        String names = "";
+        User user = userService.findByUuid(uuid).get();
+        prevNamesService.deleteByUuid(uuid);
+        try {
+            System.out.println("================[ Pinging Mojang Api for names ]=================");
+            Profile userProfile = MojangAPI.getProfile(user.getName());
+            StringBuilder history = new StringBuilder("[");
+            for (Name name : MojangAPI.getNameHistory(userProfile.getName())) {
+                PrevNames prevname = new PrevNames(name.getName(), userProfile.getId(), name.getChangedToAt());
+                prevNamesService.save(prevname);
+            }
+        } catch (APIException | IOException e) {
+        }
+        return names;
+    }
+
+    public User updateName(String uuid) {
+        User user = userService.findByUuid(uuid).get();
+        try {
+            System.out.println("================[ Pinging Mojang Api ]=================");
+            Profile userProfile = MojangAPI.getProfile(user.getName());
+            user.setName(userProfile.getName());
+
+            userService.save(user);
+        } catch (APIException | IOException e) {
+        }
+        return user;
+    }
 }

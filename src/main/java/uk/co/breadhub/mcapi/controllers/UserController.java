@@ -1,6 +1,7 @@
 package uk.co.breadhub.mcapi.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import uk.co.breadhub.mcapi.model.PrevNames;
 import uk.co.breadhub.mcapi.model.User;
@@ -44,6 +45,13 @@ public class UserController {
         return user;
     }
 
+    @GetMapping("/api/update/{uuid}/")
+    public String updatePrevByUuid(@PathVariable(value = "uuid") String uuid) {
+        String names = utils.updatePrevNames(uuid);
+        User user = getByUuid(uuid);
+        return "OK";
+    }
+
     @GetMapping("/api/name/{name}/names")
     public List<PrevNames> getPrevByName(@PathVariable(value = "name") String name) {
         User user = getByName(name);
@@ -74,6 +82,17 @@ public class UserController {
     @GetMapping("/api/names/count")
     public long countNames() {
         return prevnamesService.count();
+    }
+
+    @Controller
+    public static class UserApiHelpController {
+
+        @GetMapping({"/api", "/"})
+        public String greeting() {
+            //public String greeting(Model model) {
+            //model.addAttribute("uuid", uuid);
+            return "ApiHelp";
+        }
     }
 
     // ==================

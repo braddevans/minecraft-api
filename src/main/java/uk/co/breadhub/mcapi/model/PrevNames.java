@@ -56,4 +56,13 @@ public class PrevNames {
     public void setChangedToAt(Long changedToAt) {
         ChangedToAt = changedToAt;
     }
+
+    @Override
+    public String toString() {
+        return "PrevNames{" +
+                "name='" + name + '\'' +
+                ", uuid='" + uuid + '\'' +
+                ", ChangedToAt=" + ChangedToAt +
+                '}';
+    }
 }

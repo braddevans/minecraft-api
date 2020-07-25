@@ -10,19 +10,25 @@
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
     document.getElementById('content').innerHTML =
-        marked('### Api Calls: \n' +
-            '\n\n======================================================================\n\n' +
-            //'#####    /api/all            -   [Displays all users]\n' +
+        marked('### Api Endpoints: \n' +
+            '\n' +
+            '====================================================================== \n' +
+            '#####    /api/all            -   [Displays all users]\n' +
+            '#####    /api/names/all      -   [Displays all Previous Names]\n' +
             '#####    /api/count          -   [Displays user count]\n' +
-            '\n\n======================================================================\n\n' +
-            //'#####    /api/{id}           -   [Displays user by db_id]\n' +
+            '#####    /api/names/count    -   [Displays names count]\n' +
+            '\n' +
+            '#####    /api/update/{uuid}/ -   [Updates user by uuid {Please limit yourself to doing this in the last case Senario as to not hemmer age the main api}]\n' +
+            '\n' +
+            '======================================================================\n' +
             '#####    /api/uuid/{uuid}         -   [Displays user by uuid]\n' +
             '#####    /api/name/{name}         -   [Displays user by name]\n' +
-            '\n\n======================================================================\n\n' +
-            //"#####    /api/{id}/names     -   [Displays user's previous by db_id]\n" +
-            "#####    /api/name/{name}/names   -   [Displays user's previous by name]\n" +
-            "#####    /api/uuid/{uuid}/names   -   [Displays user's previous by uuid]\n" +
-            '\n\n======================================================================\n\n');
+            '\n' +
+            '======================================================================\n' +
+            '#####    /api/name/{name}/names   -   [Displays user\'s previous by name]\n' +
+            '#####    /api/uuid/{uuid}/names   -   [Displays user\'s previous by uuid]\n' +
+            '\n' +
+            '======================================================================');
 </script>
 </body>
 </html>

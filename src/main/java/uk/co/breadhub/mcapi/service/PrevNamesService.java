@@ -10,6 +10,8 @@ public interface PrevNamesService {
 
     List<PrevNames> findByUuid(String id);
 
+    void deleteByUuid(String id);
+
     List<PrevNames> findByName(String id);
 
     Iterable<PrevNames> findAllNames();

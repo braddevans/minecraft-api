@@ -38,4 +38,14 @@ public class Main {
             e.printStackTrace();
         }
     }
+
+
+    // ========================
+    // if !getUser(Uuid).getName().equals(name)
+    //      Update Prev Names and update name
+    //
+    //
+    //
+    // ========================
+
 }

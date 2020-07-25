@@ -14,6 +14,8 @@
 #####    /api/count          -   [Displays user count]
 #####    /api/names/count    -   [Displays names count]
 
+#####    /api/update/{uuid}/ -   [Updates user by uuid {Please limit yourself to doing this in the last case Senario as to not hemmer age the main api}]
+
 ======================================================================
 #####    /api/uuid/{uuid}         -   [Displays user by uuid]
 #####    /api/name/{name}         -   [Displays user by name]
@@ -23,12 +25,6 @@
 #####    /api/uuid/{uuid}/names   -   [Displays user's previous by uuid]
 
 ======================================================================
-
-##
-
-### Planned Fixes or items to check:
- 
- - check if it updates the name history of the user when they change their name
 
 ##
 
