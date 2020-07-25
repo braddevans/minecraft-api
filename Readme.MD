@@ -28,6 +28,36 @@
 
 ##
 
+### Default config.yml
+
+##### Stored in same directory as jar
+
+```yaml
+logging:
+  level:
+    org:
+      springframework: ERROR
+
+spring:
+  main:
+    banner-mode: 'off'
+
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: test
+    password: test123
+    url: jdbc:mysql://localhost:3306/mcapi
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+```
+
 ### Example Api Call
 ##### Note: "changedToAt" is a Unix Timestamp
 
