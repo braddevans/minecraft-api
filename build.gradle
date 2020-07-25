@@ -22,7 +22,6 @@ repositories {
 
 
 dependencies {
-	// https://mvnrepository.com/artifact/commons-io/commons-io
 	implementation group: 'commons-io', name: 'commons-io', version: '2.6'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -30,12 +29,21 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'mysql:mysql-connector-java'
 	compileOnly 'org.projectlombok:lombok'
+	compileOnly 'org.junit.jupiter:junit-jupiter:5.4.2'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.hsqldb:hsqldb'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation("com.github.KevinPriv:MojangAPI:1.0")
 	implementation("com.google.guava:guava:29.0-jre")
+	testImplementation(
+			'junit:junit:4.12',
+			'org.junit.jupiter:junit-jupiter-api:5.4.2'
+	)
+	testRuntime(
+			'org.junit.jupiter:junit-jupiter-engine:5.4.2',
+			'org.junit.vintage:junit-vintage-engine:5.4.2'
+	)
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
