@@ -1,10 +1,8 @@
 package uk.co.breadhub.mcapi;
 
 import org.apache.commons.io.FileUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import uk.co.breadhub.mcapi.database.UserRepository;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,14 +36,4 @@ public class Main {
             e.printStackTrace();
         }
     }
-
-
-    // ========================
-    // if !getUser(Uuid).getName().equals(name)
-    //      Update Prev Names and update name
-    //
-    //
-    //
-    // ========================
-
 }

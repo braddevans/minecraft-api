@@ -25,18 +25,15 @@ public class PrevNamesServiceImpl implements PrevNamesService {
 
     @Override
     public void deleteByUuid(String id) {
-        for (PrevNames name: prevnamesRepository.findUserByUuid(id)) {
+        for (PrevNames name : prevnamesRepository.findUserByUuid(id)) {
             prevnamesRepository.delete(name);
         }
     }
-
-
 
     @Override
     public List<PrevNames> findByName(String name) {
         return prevnamesRepository.findByName(name);
     }
-
 
     @Override
     public Iterable<PrevNames> findAllNames() {

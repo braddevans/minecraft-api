@@ -12,7 +12,6 @@ import uk.co.breadhub.mcapi.service.PrevNamesService;
 import uk.co.breadhub.mcapi.service.UserService;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 @Component
 public class Utils {
