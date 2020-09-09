@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Timer;
+import java.util.TimerTask;
 
 @SpringBootApplication
 public class Main {
@@ -21,7 +23,20 @@ public class Main {
         if (!(new File(WorkingDir + "/config.yml").exists())) {
             downloadDefaultConfig();
         }
+        runLoop();
         SpringApplication.run(Main.class, args);
+    }
+
+    private static void runLoop() {
+        Timer timer = new Timer();
+
+        timer.schedule(new TimerTask() {
+            public void run() {
+                // run garbage collection
+                System.gc();
+                //System.out.println("gc");
+            }
+        }, 0, 5 * 1000);
     }
 
     private static void downloadDefaultConfig() {
