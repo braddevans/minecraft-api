@@ -29,7 +29,7 @@ public class UserController {
         return userService.save(user);
     }
 
-    @GetMapping("/api/uuid/{id}")
+    @GetMapping("/api/uuid/{uuid}")
     public User getByUuid(@PathVariable(value = "uuid") String uuid) {
         return userService.findByUuid(uuid).get();
     }
