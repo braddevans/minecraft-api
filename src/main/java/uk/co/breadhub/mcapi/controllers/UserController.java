@@ -1,5 +1,6 @@
 package uk.co.breadhub.mcapi.controllers;
 
+import me.kbrewster.mojangapi.MojangAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -40,7 +41,11 @@ public class UserController {
         if (!userService.findByName(name).isEmpty()) {
             user = userService.findByName(name).get();
         } else {
-            user = utils.newUser(name);
+            try {
+                if (userService.findByUuid(MojangAPI.getProfile(name).getId()).isEmpty()) {
+                    user = utils.newUser(name);
+                }
+            } catch (Exception ignored) {}
         }
         return user;
     }
