@@ -31,28 +31,75 @@ public class Utils implements UtilsApi {
     @Autowired
     private PrevNamesService prevNamesService;
 
-    public String newUser(String str) {
-        queueSize += 1;
-        queueName.add(str);
-        return "Queued for creation";
+    public User newUser(String str) {
+
+        User user = new User();
+
+        if (requestsDone >= 500) {
+            System.out.println("Adding Name: " + str + " to Queue");
+            queueSize += 1;
+            queueName.add(str);
+        }
+        else {
+
+            try {
+                Profile userProfile = MojangAPI.getProfile(str);
+                user.setName(userProfile.getName());
+                user.setUuid(userProfile.getId());
+                for (Name name : MojangAPI.getNameHistory(userProfile.getName())) {
+                    PrevNames prevname = new PrevNames(name.getName(), userProfile.getId(), name.getChangedToAt());
+                    prevNamesService.save(prevname);
+                }
+                System.out.println(String.format("Name: %s, UUID: %s", userProfile.getName(), userProfile.getId()));
+
+                userService.save(user);
+            } catch (APIException | IOException e) {
+            }
+            requestsDone += 1;
+        }
+        return user;
     }
 
-    public String newUser(UUID str) {
-        queueSize += 1;
-        queueUUID.add(str);
-        return "Queued for creation";
+    public User newUser(UUID str) {
+
+        User user = new User();
+
+        if (requestsDone >= 500) {
+            queueSize += 1;
+            System.out.println("Adding UUID: " + str + " to Queue");
+            queueUUID.add(str);
+        }
+        else {
+            try {
+                Profile userProfile = MojangAPI.getProfile(str);
+                user.setName(userProfile.getName());
+                user.setUuid(userProfile.getId());
+                for (Name name : MojangAPI.getNameHistory(userProfile.getName())) {
+                    PrevNames prevname = new PrevNames(name.getName(), userProfile.getId(), name.getChangedToAt());
+                    prevNamesService.save(prevname);
+                }
+                System.out.println(String.format("Name: %s, UUID: %s", userProfile.getName(), userProfile.getId()));
+
+                userService.save(user);
+            } catch (APIException | IOException e) {
+            }
+            requestsDone += 1;
+        }
+        return user;
     }
 
-    public void processQueue(){
+    public void processQueue() {
         if (queueSize >= maxRequests) {
             if (queueName.size() < 150 && queueUUID.size() < 150) {
                 loopNames(queueName.size(), queueName);
                 loopUUIDS(queueUUID.size(), queueUUID);
-            } else {
+            }
+            else {
                 loopNames(Math.min(queueName.size(), 75), queueName);
                 loopUUIDS(Math.min(queueUUID.size(), 75), queueUUID);
             }
-        } else {
+        }
+        else {
             loopNames(queueName.size(), queueName);
             loopUUIDS(queueUUID.size(), queueUUID);
         }
@@ -129,7 +176,6 @@ public class Utils implements UtilsApi {
         }
         return bool;
     }
-
 
     public String insertDashUUID(String uuid) {
         StringBuffer sb = new StringBuffer(uuid);
