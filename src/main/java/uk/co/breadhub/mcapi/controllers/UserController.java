@@ -11,6 +11,7 @@ import uk.co.breadhub.mcapi.service.UserService;
 import uk.co.breadhub.mcapi.utils.Utils;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("")
@@ -32,7 +33,22 @@ public class UserController {
 
     @GetMapping("/api/uuid/{uuid}")
     public User getByUuid(@PathVariable(value = "uuid") String uuid) {
-        return userService.findByUuid(uuid).get();
+        if (uuid.contains("-")){
+           uuid = uuid.replaceAll("-","");
+        }
+
+        User user = null;
+        if (userService.findByUuid(uuid).isPresent()) {
+            user = userService.findByUuid(uuid).get();
+        }
+        else {
+            try {
+                utils.newUser(UUID.fromString(utils.insertDashUUID(uuid)));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return user;
     }
 
     @GetMapping("/api/name/{name}")
@@ -40,10 +56,11 @@ public class UserController {
         User user = null;
         if (!userService.findByName(name).isEmpty()) {
             user = userService.findByName(name).get();
-        } else {
+        }
+        else {
             try {
                 if (userService.findByUuid(MojangAPI.getProfile(name).getId()).isEmpty()) {
-                    user = utils.newUser(name);
+                    utils.newUser(name);
                 }
             } catch (Exception ignored) {}
         }
