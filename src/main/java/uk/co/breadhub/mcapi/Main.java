@@ -50,6 +50,7 @@ public class Main {
 
         timer.schedule(new TimerTask() {
             public void run() {
+                utils.setRequests(0);
                 utils.processQueue();
             }
         }, 0, (5 * 60) * 1000);

@@ -88,6 +88,7 @@ public class Utils implements UtilsApi {
         return user;
     }
 
+    @Override
     public void processQueue() {
         if (queueSize >= maxRequests) {
             if (queueName.size() < 150 && queueUUID.size() < 150) {
@@ -104,6 +105,16 @@ public class Utils implements UtilsApi {
             loopUUIDS(queueUUID.size(), queueUUID);
         }
         //wait 5 mins
+    }
+
+    @Override
+    public int getRequests() {
+        return requestsDone;
+    }
+
+    @Override
+    public void setRequests(int req) {
+        requestsDone = req;
     }
 
     private void loopNames(int size, List<String> queue) {
